@@ -11,6 +11,10 @@ app.get("/",(req,res)=>{
     res.render("index");
 });
 
+var routes = require("./controllers/foodcontroller.js");
+
+app.use(routes);
+
 app.listen(PORT, ()=>{
     console.log(`App is listing on http://localhost:${PORT}`);
 });
