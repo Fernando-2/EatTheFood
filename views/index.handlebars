@@ -1,8 +1,37 @@
 <h1>Eat The Food</h1>
-{{#unless devoured}}
-   {{!-- render undevoured burgers here --}}
-{{/unless}}
 
-{{#if devoured}}
-     {{!--Render Devoured --}}
-{{/if}}
+<h2>Devour The Food!</h2>
+
+<ul>
+  {{#each foods}}
+    {{#if devoured}}
+      {{> foods/food-block devoured=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Food That Has Been Devoured!</h2>
+
+<ul>
+  {{#each foods}}
+    {{#unless devoured}}
+      {{> foods/food-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+<h2>Add a Dish</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="da">Food Name:</label>
+    <input type="text" id="da" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="slee">Devoured?</label><br>
+
+  <button type="submit">Add Food</button>
+</form>
+
