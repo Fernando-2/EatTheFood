@@ -21,7 +21,7 @@ router.post("/api/foods", function(req, res) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
-
+});
 
 router.put("/api/foods/:id", function(req, res) {
   var condition = "id = " + req.params.id;
@@ -43,6 +43,6 @@ router.put("/api/foods/:id", function(req, res) {
     }
   );
 });
-});
+
 // Export routes for server.js to use.
 module.exports = router;
