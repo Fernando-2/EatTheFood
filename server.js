@@ -1,18 +1,22 @@
-const express = require("express");
-const expHbs = require("express-handlebars");
+var express = require("express");
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+var app = express();
+var PORT = process.env.PORT || 3001;
+
+
+app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+var expHbs = require("express-handlebars");
 
 app.engine('handlebars', expHbs({defaultLayout:"main"}));
 app.set('view engine', 'handlebars');
 
-app.get("/",(req,res)=>{
-    res.render("index");
-});
 
 var routes = require("./controllers/foodcontroller.js");
-
 app.use(routes);
 
 app.listen(PORT, ()=>{

@@ -2,19 +2,19 @@
 $(function() {
     $(".change-devour").on("click", function(event) {
       var id = $(this).data("id");
-      var devouredFresh = $(this).data("devouredFresh");
+      var newDevour = $(this).data("newdevour");
   
-      var newlyDevoured = {
-        devoured: devouredFresh
+      var newDevourState = {
+        devoured: newDevour
       };
   
       // Send the PUT request.
       $.ajax("/api/foods/" + id, {
         type: "PUT",
-        data: newlyDevoured
+        data: newDevourState
       }).then(
         function() {
-          console.log("changed devoured to", devouredFresh);
+          console.log("changed devour to", newDevour);
           // Reload the page to get the updated list
           location.reload();
         }
@@ -26,7 +26,7 @@ $(function() {
       event.preventDefault();
   
       var newFood = {
-        name: $("#da").val().trim(),
+        name: $("#ca").val().trim(),
         devoured: $("[name=devoured]:checked").val().trim()
       };
   
@@ -43,3 +43,4 @@ $(function() {
       );
     });
   });
+  

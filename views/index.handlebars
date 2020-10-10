@@ -5,20 +5,14 @@
 <ul>
   {{#each foods}}
     {{#if devoured}}
-      {{> foods/food-block devoured=false}}
+      {{>foods/foodbutton devoured=false}}
     {{/if}}
   {{/each}}
 </ul>
 
 <h2>Food That Has Been Devoured!</h2>
 
-<ul>
-  {{#each foods}}
-    {{#unless devoured}}
-      {{> foods/food-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+
 
 
 <h2>Add a Dish</h2>
@@ -30,7 +24,7 @@
   </div>
 
   <div class="form-group">
-    <label for="slee">Devoured?</label><br>
+    <label for="devour">Devoured?</label><br>
 
   <button type="submit">Add Food</button>
 </form>
