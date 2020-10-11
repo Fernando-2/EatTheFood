@@ -22,4 +22,3 @@ var food = {
 
 // Export the database functions for the controller (foodsController.js).
 module.exports = food;
-

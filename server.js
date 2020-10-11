@@ -1,24 +1,27 @@
 var express = require("express");
-var expHbs = require("express-handlebars");
+
+var PORT = process.env.PORT || 8080;
 
 var app = express();
-var PORT = process.env.PORT || 3001;
 
-
+// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+// Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.render("index");
-});
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
-app.engine('handlebars', expHbs({defaultLayout:"main"}));
-app.set('view engine', 'handlebars');
-var routes = require("./controllers/foodcontroller.js");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Import routes and give the server access to them.
+var routes = require("./controllers/foodsController.js");
+
 app.use(routes);
 
-app.listen(PORT, ()=>{
-    console.log(`App is listing on http://localhost:${PORT}`);
+app.listen(PORT, function() {
+  console.log("App now listening at localhost:" + PORT);
 });

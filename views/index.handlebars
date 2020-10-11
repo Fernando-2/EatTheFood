@@ -1,31 +1,34 @@
-<h1>Eat The Food</h1>
+<h1>EAT THE FOOD!</h1>
 
-<h2>Devour The Food!</h2>
+<h2>Devour this deliciousness!</h2>
+
+<ul>
+  {{#each foods}}
+    {{#unless devoured}}
+      {{> foods/Food-block devour=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Deliciousness has been devoured!</h2>
 
 <ul>
   {{#each foods}}
     {{#if devoured}}
-      {{>foods/foodbutton devoured=false}}
+      {{> foods/Food-block devour=false}}
     {{/if}}
   {{/each}}
 </ul>
-
-<h2>Food That Has Been Devoured!</h2>
-
-
-
 
 <h2>Add a Dish</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="da">Food Name:</label>
-    <input type="text" id="da" name="name">
+    <label for="Fa">Food Name:</label>
+    <input type="text" id="Fa" name="name">
   </div>
 
-  <div class="form-group">
-    <label for="devour">Devoured?</label><br>
-
-  <button type="submit">Add Food</button>
+  <button type="submit">Add food</button>
 </form>
+
 
