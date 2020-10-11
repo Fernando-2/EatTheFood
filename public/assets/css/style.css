@@ -1,7 +1,10 @@
+body{
+  background: url(imgs.jpg) no-repeat center fixed;
+  background-size: cover;
+}
 li {
   padding: 5px;
   margin: 5px;
-  background: #faebd7;
 }
 
 .label {
@@ -16,4 +19,13 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+#Eat{
+  background-color: rgba(3, 236, 3, 0.842);
+}
+#Eaten {
+  background-color: rgba(233, 18, 18, 0.521);
+}
+#addFood{
+  background-color:rgba(35, 39, 243, 0.795);
 }

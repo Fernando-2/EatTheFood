@@ -1,34 +1,45 @@
-<h1>EAT THE FOOD!</h1>
-
-<h2>Devour this deliciousness!</h2>
-
-<ul>
-  {{#each foods}}
-    {{#unless devoured}}
-      {{> foods/Food-block devour=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Deliciousness has been devoured!</h2>
-
-<ul>
-  {{#each foods}}
-    {{#if devoured}}
-      {{> foods/Food-block devour=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Dish</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="Fa">Food Name:</label>
-    <input type="text" id="Fa" name="name">
+<div class="container">
+  <div class="row mt-3">
+    <h1>EAT THE FOOD!</h1>
   </div>
+  <div class="row mt-3 mx-2">
+    <div class="col-sm-4 mt-2">
+      <div class="card m-1" id="Eat">
+        <h2>Devour this deliciousness!</h2>
 
-  <button type="submit">Add food</button>
-</form>
+        <ul>
+          {{#each foods}}
+          {{#unless devoured}}
+          {{> foods/Food-block devour=true}}
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-4 mt-2">
+      <div class="card m-1" id="Eaten">
+        <h2>Deliciousness has been devoured!</h2>
 
+        <ul>
+          {{#each foods}}
+          {{#if devoured}}
+          {{> foods/Food-block devour=false}}
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-4 mt-2 "id="addFood" >
+      <h2>Add a Dish</h2>
+      <form class="create-form">
 
+        <div class="form-group">
+          <label for="Fa">Food Name:</label>
+          <input type="text" id="Fa" name="name">
+        </div>
+
+        <button class="d-inline btn btn-primary" type="submit">Add food</button>
+      </form>
+    </div>
+  </div>
+</div>

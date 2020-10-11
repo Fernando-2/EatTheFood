@@ -43,6 +43,19 @@ router.put("/api/foods/:id", function(req, res) {
     }
   );
 });
+// Delete Route
+router.delete("/api/foods/:id", (req, res) => {
+  console.log("DELETE HIT!");
 
+  const foodId = req.params.id;
+
+  console.log(foodId);
+
+  food.remove(foodId, function() {
+    console.log("food id " + foodId + " was removed!");
+
+    res.status(200).end();
+  });
+});
 // Export routes for server.js to use.
 module.exports = router;
