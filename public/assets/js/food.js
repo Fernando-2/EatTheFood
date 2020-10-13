@@ -2,11 +2,11 @@
 $(function() {
    // DELETE
    $(".remove-food").on("click", function() {
-    const catId = $(this).attr("data-id");
+    const foodId = $(this).attr("data-id");
 
-    console.log(catId);
+    console.log(foodId);
 
-    $.ajax("/api/foods/" + catId, {
+    $.ajax("/api/foods/" + foodId, {
       method: "DELETE"
     }).then(function() {
       console.log("food was deleted succesfully!");
